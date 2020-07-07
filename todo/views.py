@@ -1,5 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic import ListView, DetailView
+from .models import TodoModel
 
-def todo(request):
-    return HttpResponse('hello world')
+class TodoList(ListView):
+    template_name = 'list.html'
+    model = TodoModel
+
+
+class TodoDetail(DetailView):
+    template_name = 'detail.html'
+    model = TodoModel
